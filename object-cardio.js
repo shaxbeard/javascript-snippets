@@ -240,7 +240,7 @@ const sortedPrograms = Object.keys(programs)
   .map(key => programs[key])
   .sort((a, b) => (a.name > b.name ? 1 : -1));
 
-console.log(sortedPrograms);
+// console.log(sortedPrograms);
 
 //Another example of converting to array then sort
 // const maxSpeed = {
