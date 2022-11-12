@@ -41,6 +41,9 @@ const inventors = [
 
 // console.table(fullNames);
 
+// 2.5 SORT
+// Sort the inventors by birthdate, oldest to youngest
+
 // 3. REDUCE TO MAKE A SUM OF ITEMS IN AN ARRAY
 
 //How many years did all of the inventors live?
