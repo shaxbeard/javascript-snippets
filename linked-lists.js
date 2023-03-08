@@ -1,25 +1,33 @@
+// DOUBLY LINKED LIST
+
 class LinkedList {
   constructor() {
     this.head = this.tail = null;
   }
+
   // add to end of list / tail
   append(value) {
     //if list is empty
     if (!this.tail) {
       this.head = this.tail = new Node(value);
-    } else {
+    }
+    // if linkedlist has >= one node
+    else {
       let oldTail = this.tail;
       this.tail = new Node(value);
       oldTail.next = this.tail;
       this.tail.prev = oldTail;
     }
   }
+
   // add to beginning of list / head
   prepend(value) {
     // if list is empty
     if (!this.head) {
       this.head = this.tail = new Node(value);
-    } else {
+    }
+    // if linkedlist has >= one node
+    else {
       let oldHead = this.head;
       this.head = new Node(value);
       oldHead.prev = this.head;
@@ -28,15 +36,19 @@ class LinkedList {
   }
 
   deleteHead() {
-    // if list is empty
+    // if list is empty (no head)
     if (!this.head) {
       return null;
-    } else {
+    }
+    // if linkedlist has >= 1 node
+    else {
       let removedHead = this.head;
-      // if 1 node left
+      // if list has only 1 node left
       if (this.head === this.tail) {
         this.head = this.tail = null;
-      } else {
+      }
+      //if list has >1 node
+      else {
         this.head = this.head.next;
         this.head.prev = null;
       }
@@ -45,15 +57,19 @@ class LinkedList {
   }
 
   deleteTail() {
-    // if list is empty
+    // if list is empty (no tail)
     if (!this.tail) {
       return null;
-    } else {
+    }
+    // if linkedlist has >= one node
+    else {
       let removedTail = this.tail;
       // if 1 node left
       if (this.head === this.tail) {
         this.head = this.tail = null;
-      } else {
+      }
+      //if list has >1 node
+      else {
         this.tail = this.tail.prev;
         this.tail.next = null;
       }
@@ -87,3 +103,23 @@ list.append(1);
 list.append(2);
 list.append(3);
 console.log(list.search(2));
+
+list.append(1);
+list.append(2);
+list.append(3);
+
+// list.prepend(0)
+// list.prepend(-1)
+
+// list.search(1)
+// list.search(3)
+// list.search(999)
+
+// list.deleteHead() // -1
+// list.deleteTail() // 3
+// list.deleteTail() // 2
+// list.deleteHead() // 0
+
+// list.deleteHead() // 1
+
+// list.deleteTail() // null
