@@ -12,19 +12,19 @@ const sales = {
 // console.log(Object.values(sales));
 // console.log(Object.entries(sales));
 
-function sumSales(obj) {
-  let sum = 0;
-  for (let value of Object.values(obj)) {
-    sum += value;
-  }
-  return sum;
-}
+// function sumSales(obj) {
+//   let sum = 0;
+//   for (let value of Object.values(obj)) {
+//     sum += value;
+//   }
+//   return sum;
+// }
 
-function personSales(obj) {
-  for (let [key, value] of Object.entries(obj)) {
-    console.log(`${key} has ${value} sales`);
-  }
-}
+// function personSales(obj) {
+//   for (let [key, value] of Object.entries(obj)) {
+//     console.log(`${key} has ${value} sales`);
+//   }
+// }
 
 // console.log(sumSales(sales));
 // console.log(personSales(sales));
@@ -46,20 +46,20 @@ const raptors = {
   },
 };
 
-function names1(obj) {
-  return Object.keys(obj).map(key => obj[key]);
-}
-function names2(obj) {
-  return Object.values(obj).map(raptor => raptor.name);
-}
-function names3(obj) {
-  return Object.entries(obj).map(([key, raptor]) => raptor.name);
-}
+// function names1(obj) {
+//   return Object.keys(obj).map(key => obj[key]);
+// }
+// function names2(obj) {
+//   return Object.values(obj).map(raptor => raptor.name);
+// }
+// function names3(obj) {
+//   return Object.entries(obj).map(([key, raptor]) => raptor.name);
+// }
 
 // const myRaptor = names1(raptors);
 // myRaptor.forEach(raptor => console.log(raptor.age));
 
-const myRaptorValue = Object.keys(raptors).map(key => raptors[key]);
+// const myRaptorValue = Object.keys(raptors).map(key => raptors[key]);
 // console.log(myRaptorValue.name);
 
 //SECTION #3 - WORKING WITH MULTIPLE NESTED OBJECTS CONTAINING ARRAYS
@@ -111,14 +111,14 @@ const products = {
   ],
 };
 
-Object.values(products).forEach(productCategory => {
-  productCategory.forEach(product => {
-    if (product.selected) {
-      selectedProducts.push(product);
-      numProductsSelected++;
-    }
-  });
-});
+// Object.values(products).forEach(productCategory => {
+//   productCategory.forEach(product => {
+//     if (product.selected) {
+//       selectedProducts.push(product);
+//       numProductsSelected++;
+//     }
+//   });
+// });
 
 // console.log("Selected Products", selectedProducts);
 // console.log("Num Products Selected", numProductsSelected);
@@ -236,9 +236,9 @@ const programs = {
 //   (a, b) => (a.name > b.name ? 1 : -1) // this works, but why needed?
 // );
 
-const sortedPrograms = Object.keys(programs)
-  .map(key => programs[key])
-  .sort((a, b) => (a.name > b.name ? 1 : -1));
+// const sortedPrograms = Object.keys(programs)
+//   .map(key => programs[key])
+//   .sort((a, b) => (a.name > b.name ? 1 : -1));
 
 // console.log(sortedPrograms);
 
@@ -257,3 +257,94 @@ const sortedPrograms = Object.keys(programs)
 //   .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
 
 // console.log(sortable);
+
+// Write a function `loopThroughAnimals()` that takes in an object
+// with properties in the following format:
+// `key: {species: "animal type"}` e.g. `dory: {species: "fish"}`
+// >
+// > Your function should loop through the argument object.
+// It should log to the console each property in the following
+// format: `key : animal type` e.g. `dory : fish`
+
+let pets = {
+  Scooter: { species: "cat" },
+  Bucket: { species: "fish" },
+  Blammo: { species: "dog" },
+};
+
+// ACCESS NESTED PROPERTY VALUE USING THE NESTED KEY NAME
+// const loopThroughAnimals = obj => {
+//   for (const key in obj) {
+//     console.log(`${key}: ${obj[key].species}`);
+//   }
+// };
+
+// ACCESS NESTED PROPERTY VALUE USING A VARIABLE INSTEAD OF THE NESTED KEY NAME
+// const loopThroughAnimals = obj => {
+//   for (const key in obj) {
+//     for (const innerKey in obj[key]) {
+//       console.log(`${key}: ${obj[key][innerKey]}`);
+//     }
+//   }
+// };
+// loopThroughAnimals(pets);
+
+let data = {
+  subsets: [
+    {
+      id: 2238,
+      asset_id: 304,
+      subset_asset_id: 1,
+      subset_ccode_id: "R00001",
+    },
+    {
+      asset_id: 304,
+      subset_ccode_id: "F05659",
+      subset_asset_id: "05659",
+    },
+  ],
+};
+
+// let courseRelationshipKey = "asset_id";
+
+// let relationshipKeys = {
+//   subsets: {
+//     model: "subset",
+//     truncate: true,
+//   },
+// };
+
+// for (let key in relationshipKeys) {
+//   let relationshipAttrs = relationshipKeys[key];
+//   let relationshipData = data[key];
+
+//   if (relationshipAttrs.innerKey) {
+//     relationshipData = relationshipData.map(
+//       val => val[relationshipAttrs.innerKey]
+//     );
+//   }
+//   console.log(relationshipData);
+// }
+
+// ACCESSING VALUE IN OBJECT WITH A VARIABLE
+
+// const birthyear = 2020;
+// const years = {
+//   1999: "Good",
+//   2020: "Bad",
+// };
+
+// console.log(years[birthyear]);
+
+const obj1 = { foo: "bar", x: 42 };
+const obj2 = { foo: "baz", y: 13 };
+
+// USE SRPEAD SYNTAX TO MERGE TWO OBJECTS INTO A NEW OBJECT
+// const mergedObj = { ...obj1, ...obj2 };
+
+// console.log(mergedObj);
+
+// USE OBJECT.ASSIGN TO MUTATE AN EXISTING OBJECT
+Object.assign(obj1, { x: 1337 });
+
+console.log(obj1);
