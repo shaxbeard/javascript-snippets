@@ -2,11 +2,11 @@
 // Example f(a,b) into f(a)(b)
 
 // FIRST A NORMAL FUNCTION WITH TWO PARAMETERS
-function f(a, b) {
-  console.log(a, b);
-}
+// function f(a, b) {
+//   console.log(a, b);
+// }
 
-// SECOND A CURRYING FUNCTION
+// SECOND, A CURRYING FUNCTION THAT DOES THE SAME AS ABOVE
 // function f(a) {
 //   // returns an anonymous function
 //   return function (b) {
@@ -35,14 +35,28 @@ function f(a, b) {
 // }
 // console.log(sum(2)(6)(1), 9);
 
+// CURRYING INTERVIEW QUESTION #2
+// Write a function tat would allo you to do this:
+// var addSix = createBase(6); // To assign a function call to a variable
+// addSix(10); // returns 16 - // Now you can call that variable and pass another number
+// addSix(21); // returns 27
+
+// function createBase(num) {
+//   return function (innerNum) {
+//     return innerNum + num;
+//   };
+// }
+
+// var addSix = createBase(6); // To assign a function call to a variable
+// console.log(addSix(10), 16); // returns 16 - // Now you can call that variable and pass another numberaddSix(10); // returns 16 - // Now you can call that variable and pass another number
+// console.log(addSix(21), 27); // returns 27addSix(21); // returns 27
+
 // CURRYING INTERVIEW QUESTION #5
 // Implement infinite currying
 
 function add(a) {
   return function (b) {
-    if (b) {
-      return add(a + b);
-    }
+    if (b) return add(a + b);
     return a;
   };
 }
